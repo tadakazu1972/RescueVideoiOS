@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     //アプリ内に組み込んだ動画ファイルを再生
     func playMovieFromProjectBundle(){
         
-        if let bundlePath = Bundle.main.path(forResource: "nekohiroi", ofType: "mp4"){
+        if let bundlePath = Bundle.main.path(forResource: "adult", ofType: "mp4"){
             
             let videoPlayer = AVPlayer(url: URL(fileURLWithPath: bundlePath))
             let playerController = AVPlayerViewController()
