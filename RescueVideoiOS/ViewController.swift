@@ -16,7 +16,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let button1 = UIButton(type: .system)
-        button1.setTitle("成人", for: .normal)
+        button1.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
+        button1.titleLabel!.numberOfLines = 2
+        button1.titleLabel!.textAlignment = NSTextAlignment.center
+        button1.setTitle("おとな\n成人", for: .normal)
         button1.addTarget(self, action: #selector(self.playMovieFromProjectBundle), for: .touchUpInside)
         
         // Documentディレクトリから動画を読み込む場合
@@ -27,14 +30,20 @@ class ViewController: UIViewController {
         self.view.addSubview(button1)
         
         let button2 = UIButton(type: .system)
-        button2.setTitle("小児(1〜15歳)", for: .normal)
+        button2.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
+        button2.titleLabel!.numberOfLines = 2
+        button2.titleLabel!.textAlignment = NSTextAlignment.center
+        button2.setTitle("こども\n小児(1〜15歳)", for: .normal)
         button2.addTarget(self, action: #selector(self.playMovieFromProjectBundle2), for: .touchUpInside)
         button2.sizeToFit()
         button2.layer.position = CGPoint(x: self.view.frame.width/2, y:300)
         self.view.addSubview(button2)
         
         let button3 = UIButton(type: .system)
-        button3.setTitle("乳児(1歳未満)", for: .normal)
+        button3.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
+        button3.titleLabel!.numberOfLines = 2
+        button3.titleLabel!.textAlignment = NSTextAlignment.center
+        button3.setTitle("あかちゃん\n乳児(1歳未満)", for: .normal)
         button3.addTarget(self, action: #selector(self.playMovieFromProjectBundle3), for: .touchUpInside)
         button3.sizeToFit()
         button3.layer.position = CGPoint(x: self.view.frame.width/2, y:400)
