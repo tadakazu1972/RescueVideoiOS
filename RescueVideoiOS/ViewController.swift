@@ -11,43 +11,130 @@ import AVKit
 import AVFoundation
 
 class ViewController: UIViewController {
+    let lblPress = UILabel(frame: CGRect.zero)
+    let button1 = UIButton(frame: CGRect.zero)
+    let button2 = UIButton(frame: CGRect.zero)
+    let button3 = UIButton(frame: CGRect.zero)
+    let lblFireDept = UILabel(frame: CGRect.zero)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let button1 = UIButton(type: .system)
+        //背景色
+        self.view.backgroundColor = UIColor(red:0.3, green:1.0, blue:0.3, alpha:1.0)
+        
+        //大丈夫！落ち着いてボタンを押してください。
+        lblPress.text="大丈夫！　　　　　　　　　　　　　\n落ち着いてボタンを押してください。"
+        lblPress.textColor = UIColor.black
+        lblPress.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        lblPress.lineBreakMode = NSLineBreakMode.byWordWrapping
+        lblPress.numberOfLines = 2
+        lblPress.textAlignment = NSTextAlignment.center
+        lblPress.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(lblPress)
+        
+        //成人
         button1.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
         button1.titleLabel!.numberOfLines = 2
         button1.titleLabel!.textAlignment = NSTextAlignment.center
-        button1.setTitle("おとな\n成人", for: .normal)
+        button1.titleLabel!.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        button1.setTitle("おとな\n成　人", for: UIControlState())
+        button1.backgroundColor = UIColor.blue
+        button1.layer.masksToBounds = true
+        button1.layer.cornerRadius = 8.0
+        button1.layer.borderColor = UIColor.white.cgColor
+        button1.layer.borderWidth = 2.0
         button1.addTarget(self, action: #selector(self.playMovieFromProjectBundle), for: .touchUpInside)
-        
-        // Documentディレクトリから動画を読み込む場合
-        // button.addTarget(self.plyaMovieFromLocalFile), for: /touchUpInside)
-        
-        button1.sizeToFit()
-        button1.layer.position = CGPoint(x: self.view.frame.width/2, y:200)
+        button1.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(button1)
         
-        let button2 = UIButton(type: .system)
+        //小児
         button2.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
         button2.titleLabel!.numberOfLines = 2
         button2.titleLabel!.textAlignment = NSTextAlignment.center
-        button2.setTitle("こども\n小児(1〜15歳)", for: .normal)
+        button2.titleLabel!.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        button2.setTitle("こども\n小　児（1〜15歳）", for: UIControlState())
+        button2.backgroundColor = UIColor.blue
+        button2.layer.masksToBounds = true
+        button2.layer.cornerRadius = 8.0
+        button2.layer.borderColor = UIColor.white.cgColor
+        button2.layer.borderWidth = 2.0
         button2.addTarget(self, action: #selector(self.playMovieFromProjectBundle2), for: .touchUpInside)
-        button2.sizeToFit()
-        button2.layer.position = CGPoint(x: self.view.frame.width/2, y:300)
+        button2.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(button2)
         
-        let button3 = UIButton(type: .system)
+        //乳児
         button3.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
         button3.titleLabel!.numberOfLines = 2
         button3.titleLabel!.textAlignment = NSTextAlignment.center
-        button3.setTitle("あかちゃん\n乳児(1歳未満)", for: .normal)
+        button3.titleLabel!.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        button3.setTitle("あかちゃん\n乳　児（1歳未満）", for: UIControlState())
+        button3.backgroundColor = UIColor.blue
+        button3.layer.masksToBounds = true
+        button3.layer.cornerRadius = 8.0
+        button3.layer.borderColor = UIColor.white.cgColor
+        button3.layer.borderWidth = 2.0
         button3.addTarget(self, action: #selector(self.playMovieFromProjectBundle3), for: .touchUpInside)
-        button3.sizeToFit()
-        button3.layer.position = CGPoint(x: self.view.frame.width/2, y:400)
+        button3.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(button3)
+        
+        //大阪市消防局
+        lblFireDept.text="大阪市消防局"
+        lblFireDept.textColor = UIColor.black
+        lblFireDept.textAlignment = NSTextAlignment.center
+        lblFireDept.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(lblFireDept)
+    }
+    
+    //制約ひな型
+    func Constraint(_ item: AnyObject, _ attr: NSLayoutAttribute, to: AnyObject?, _ attrTo: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0, relate: NSLayoutRelation = .equal, priority: UILayoutPriority = UILayoutPriorityRequired) -> NSLayoutConstraint {
+        let ret = NSLayoutConstraint(
+            item:       item,
+            attribute:  attr,
+            relatedBy:  relate,
+            toItem:     to,
+            attribute:  attrTo,
+            multiplier: multiplier,
+            constant:   constant
+        )
+        ret.priority = priority
+        return ret
+    }
+    
+    override func viewDidLayoutSubviews(){
+        //大丈夫！落ち着いてボタンを押してください。
+        self.view.addConstraints([
+            Constraint(lblPress, .bottom, to:button1, .top, constant:-20),
+            Constraint(lblPress, .centerX, to:self.view, .centerX, constant:8),
+            Constraint(lblPress, .width, to:self.view, .width, constant:0, multiplier:0.8),
+        ])
+        //成人
+        self.view.addConstraints([
+            Constraint(button1, .centerY, to:self.view, .centerY, constant:20),
+            Constraint(button1, .centerX, to:self.view, .centerX, constant:8),
+            Constraint(button1, .width, to:self.view, .width, constant:0, multiplier:0.7),
+            Constraint(button1, .height, to:self.view, .height, constant:0, multiplier:0.1)
+        ])
+        //小児
+        self.view.addConstraints([
+            Constraint(button2, .top, to:button1, .bottom, constant:20),
+            Constraint(button2, .centerX, to:self.view, .centerX, constant:8),
+            Constraint(button2, .width, to:self.view, .width, constant:0, multiplier:0.7),
+            Constraint(button2, .height, to:self.view, .height, constant:0, multiplier:0.1)
+        ])
+        //乳児
+        self.view.addConstraints([
+            Constraint(button3, .top, to:button2, .bottom, constant:20),
+            Constraint(button3, .centerX, to:self.view, .centerX, constant:8),
+            Constraint(button3, .width, to:self.view, .width, constant:0, multiplier:0.7),
+            Constraint(button3, .height, to:self.view, .height, constant:0, multiplier:0.1)
+        ])
+        //大阪市消防局
+        self.view.addConstraints([
+            Constraint(lblFireDept, .bottom, to:self.view, .bottom, constant:-16),
+            Constraint(lblFireDept, .centerX, to:self.view, .centerX, constant:8),
+            Constraint(lblFireDept, .width, to:self.view, .width, constant:0, multiplier:0.5)
+        ])
     }
     
     //アプリ内に組み込んだ動画ファイルを再生
