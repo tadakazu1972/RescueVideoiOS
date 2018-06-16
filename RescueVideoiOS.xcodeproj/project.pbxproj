@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59888E6320D49F790010CEBF /* kyokusyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 59888E6220D49F790010CEBF /* kyokusyo.png */; };
+		59888E6520D49F9F0010CEBF /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 59888E6420D49F9F0010CEBF /* checkbox.png */; };
 		59B2121A1F8B008B00B6394A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B212191F8B008B00B6394A /* AppDelegate.swift */; };
 		59B2121C1F8B008B00B6394A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B2121B1F8B008B00B6394A /* ViewController.swift */; };
 		59B2121F1F8B008F00B6394A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59B2121D1F8B008F00B6394A /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59888E6220D49F790010CEBF /* kyokusyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kyokusyo.png; sourceTree = "<group>"; };
+		59888E6420D49F9F0010CEBF /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
 		59B212161F8B008900B6394A /* RescueVideoiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RescueVideoiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B212191F8B008B00B6394A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59B2121B1F8B008B00B6394A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		59B212181F8B008900B6394A /* RescueVideoiOS */ = {
 			isa = PBXGroup;
 			children = (
+				59888E6420D49F9F0010CEBF /* checkbox.png */,
+				59888E6220D49F790010CEBF /* kyokusyo.png */,
 				92EC91B3204F962600CC65A4 /* adult.mp4 */,
 				92EC91B5204F9D9700CC65A4 /* child.mp4 */,
 				92EC91B7204F9DA100CC65A4 /* baby.mp4 */,
@@ -136,8 +142,10 @@
 				59B212241F8B009000B6394A /* LaunchScreen.storyboard in Resources */,
 				92EC91B8204F9DA100CC65A4 /* baby.mp4 in Resources */,
 				59B212211F8B009000B6394A /* Assets.xcassets in Resources */,
+				59888E6320D49F790010CEBF /* kyokusyo.png in Resources */,
 				92EC91B4204F962600CC65A4 /* adult.mp4 in Resources */,
 				92EC91B6204F9D9700CC65A4 /* child.mp4 in Resources */,
+				59888E6520D49F9F0010CEBF /* checkbox.png in Resources */,
 				59B2121F1F8B008F00B6394A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

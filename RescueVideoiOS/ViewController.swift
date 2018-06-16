@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     let button1 = UIButton(frame: CGRect.zero)
     let button2 = UIButton(frame: CGRect.zero)
     let button3 = UIButton(frame: CGRect.zero)
+    let imgKyokusyo = UIImageView(frame: CGRect.zero)
     let lblFireDept = UILabel(frame: CGRect.zero)
 
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor(red:0.3, green:1.0, blue:0.3, alpha:1.0)
         
         //大丈夫！落ち着いてボタンを押してください。
-        lblPress.text="大丈夫！　　　　　　　　　　　　　\n落ち着いてボタンを押してください。"
+        lblPress.text="大丈夫！\n落ち着いてボタンを押してください。"
         lblPress.textColor = UIColor.black
         lblPress.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         lblPress.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -78,6 +79,11 @@ class ViewController: UIViewController {
         button3.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(button3)
         
+        //局章
+        imgKyokusyo.image = UIImage(named: "kyokusyo.png")
+        imgKyokusyo.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(imgKyokusyo)
+        
         //大阪市消防局
         lblFireDept.text="大阪市消防局"
         lblFireDept.textColor = UIColor.black
@@ -106,7 +112,7 @@ class ViewController: UIViewController {
         self.view.addConstraints([
             Constraint(lblPress, .bottom, to:button1, .top, constant:-20),
             Constraint(lblPress, .centerX, to:self.view, .centerX, constant:8),
-            Constraint(lblPress, .width, to:self.view, .width, constant:0, multiplier:0.8),
+            Constraint(lblPress, .width, to:self.view, .width, constant:0, multiplier:0.85),
         ])
         //成人
         self.view.addConstraints([
@@ -129,9 +135,16 @@ class ViewController: UIViewController {
             Constraint(button3, .width, to:self.view, .width, constant:0, multiplier:0.7),
             Constraint(button3, .height, to:self.view, .height, constant:0, multiplier:0.1)
         ])
+        //局章
+        self.view.addConstraints([
+            Constraint(imgKyokusyo, .centerY, to:lblFireDept, .centerY, constant: 0),
+            Constraint(imgKyokusyo, .trailing, to:lblFireDept, .leading, constant: 24),
+            Constraint(imgKyokusyo, .width, to:self.view, .width, constant:0, multiplier:0.1),
+            Constraint(imgKyokusyo, .height, to:self.view, .width, constant:0, multiplier:0.1)
+        ])
         //大阪市消防局
         self.view.addConstraints([
-            Constraint(lblFireDept, .bottom, to:self.view, .bottom, constant:-16),
+            Constraint(lblFireDept, .bottom, to:self.view, .bottom, constant:-32),
             Constraint(lblFireDept, .centerX, to:self.view, .centerX, constant:8),
             Constraint(lblFireDept, .width, to:self.view, .width, constant:0, multiplier:0.5)
         ])
