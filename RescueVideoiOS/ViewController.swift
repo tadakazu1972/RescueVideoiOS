@@ -11,6 +11,9 @@ import AVKit
 import AVFoundation
 
 class ViewController: UIViewController {
+    let lblHeader = UILabel(frame: CGRect.zero)
+    let checkbox1 = UIImageView(frame: CGRect.zero)
+    let lbl119 = UILabel(frame: CGRect.zero)
     let lblPress = UILabel(frame: CGRect.zero)
     let button1 = UIButton(frame: CGRect.zero)
     let button2 = UIButton(frame: CGRect.zero)
@@ -23,6 +26,28 @@ class ViewController: UIViewController {
         
         //背景色
         self.view.backgroundColor = UIColor(red:0.3, green:1.0, blue:0.3, alpha:1.0)
+        
+        //意識・呼吸がなければ、胸骨圧迫を！
+        lblHeader.text = "意識・呼吸がなければ、胸骨圧迫を！"
+        lblHeader.textColor = UIColor.black
+        lblHeader.textAlignment = NSTextAlignment.center
+        lblHeader.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
+        lblHeader.backgroundColor = UIColor.yellow
+        lblHeader.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(lblHeader)
+        
+        //チェックボックス
+        checkbox1.image = UIImage(named: "checkbox.png")
+        checkbox1.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(checkbox1)
+        
+        //119
+        lbl119.text = "119"
+        lbl119.textColor = UIColor.red
+        lbl119.textAlignment = NSTextAlignment.center
+        lbl119.font = UIFont.boldSystemFont(ofSize: 38)
+        lbl119.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(lbl119)
         
         //大丈夫！落ち着いてボタンを押してください。
         lblPress.text="大丈夫！\n落ち着いてボタンを押してください。"
@@ -87,6 +112,7 @@ class ViewController: UIViewController {
         //大阪市消防局
         lblFireDept.text="大阪市消防局"
         lblFireDept.textColor = UIColor.black
+        lblFireDept.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         lblFireDept.textAlignment = NSTextAlignment.center
         lblFireDept.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(lblFireDept)
@@ -108,30 +134,50 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews(){
+        //意識・呼吸がなければ、胸骨圧迫を！
+        self.view.addConstraints([
+            Constraint(lblHeader, .top, to:self.view, .top, constant:20),
+            Constraint(lblHeader, .centerX, to:self.view, .centerX, constant:0),
+            Constraint(lblHeader, .width, to:self.view, .width, constant:0),
+            Constraint(lblHeader, .height, to:self.view, .height, constant:0, multiplier:0.07)
+        ])
+        //チェックボックス
+        self.view.addConstraints([
+            Constraint(checkbox1, .centerY, to:lbl119, .centerY, constant:0),
+            Constraint(checkbox1, .trailing, to:lbl119, .leading, constant:0),
+            Constraint(checkbox1, .width, to:self.view, .width, constant:0, multiplier:0.1),
+            Constraint(checkbox1, .height, to:self.view, .width, constant:0, multiplier:0.1)
+        ])
+        //119
+        self.view.addConstraints([
+            Constraint(lbl119, .top, to:lblHeader, .bottom, constant:20),
+            Constraint(lbl119, .centerX, to:self.view, .centerX, constant: -60),
+            Constraint(lbl119, .width, to:self.view, .width, constant:0, multiplier:0.25)
+        ])
         //大丈夫！落ち着いてボタンを押してください。
         self.view.addConstraints([
             Constraint(lblPress, .bottom, to:button1, .top, constant:-20),
-            Constraint(lblPress, .centerX, to:self.view, .centerX, constant:8),
+            Constraint(lblPress, .centerX, to:self.view, .centerX, constant:0),
             Constraint(lblPress, .width, to:self.view, .width, constant:0, multiplier:0.85),
         ])
         //成人
         self.view.addConstraints([
             Constraint(button1, .centerY, to:self.view, .centerY, constant:20),
-            Constraint(button1, .centerX, to:self.view, .centerX, constant:8),
+            Constraint(button1, .centerX, to:self.view, .centerX, constant:0),
             Constraint(button1, .width, to:self.view, .width, constant:0, multiplier:0.7),
             Constraint(button1, .height, to:self.view, .height, constant:0, multiplier:0.1)
         ])
         //小児
         self.view.addConstraints([
             Constraint(button2, .top, to:button1, .bottom, constant:20),
-            Constraint(button2, .centerX, to:self.view, .centerX, constant:8),
+            Constraint(button2, .centerX, to:self.view, .centerX, constant:0),
             Constraint(button2, .width, to:self.view, .width, constant:0, multiplier:0.7),
             Constraint(button2, .height, to:self.view, .height, constant:0, multiplier:0.1)
         ])
         //乳児
         self.view.addConstraints([
             Constraint(button3, .top, to:button2, .bottom, constant:20),
-            Constraint(button3, .centerX, to:self.view, .centerX, constant:8),
+            Constraint(button3, .centerX, to:self.view, .centerX, constant:0),
             Constraint(button3, .width, to:self.view, .width, constant:0, multiplier:0.7),
             Constraint(button3, .height, to:self.view, .height, constant:0, multiplier:0.1)
         ])
