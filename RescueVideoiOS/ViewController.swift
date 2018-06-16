@@ -136,7 +136,7 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews(){
         //意識・呼吸がなければ、胸骨圧迫を！
         self.view.addConstraints([
-            Constraint(lblHeader, .top, to:self.view, .top, constant:20),
+            Constraint(lblHeader, .top, to:self.view, .top, constant:32),
             Constraint(lblHeader, .centerX, to:self.view, .centerX, constant:0),
             Constraint(lblHeader, .width, to:self.view, .width, constant:0),
             Constraint(lblHeader, .height, to:self.view, .height, constant:0, multiplier:0.07)
