@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     let lblHeader = UILabel(frame: CGRect.zero)
     let checkbox1 = UIImageView(frame: CGRect.zero)
     let lbl119 = UILabel(frame: CGRect.zero)
+    let checkbox2 = UIImageView(frame: CGRect.zero)
+    let lblAED = UILabel(frame: CGRect.zero)
+    let lblOK = UILabel(frame: CGRect.zero)
     let lblPress = UILabel(frame: CGRect.zero)
     let button1 = UIButton(frame: CGRect.zero)
     let button2 = UIButton(frame: CGRect.zero)
@@ -48,6 +51,27 @@ class ViewController: UIViewController {
         lbl119.font = UIFont.boldSystemFont(ofSize: 38)
         lbl119.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(lbl119)
+        
+        //チェックボックス
+        checkbox2.image = UIImage(named: "checkbox.png")
+        checkbox2.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(checkbox2)
+        
+        //AED
+        lblAED.text = "AED"
+        lblAED.textColor = UIColor.red
+        lblAED.textAlignment = NSTextAlignment.center
+        lblAED.font = UIFont.boldSystemFont(ofSize: 38)
+        lblAED.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(lblAED)
+        
+        //OK?
+        lblOK.text = "OK?"
+        lblOK.textColor = UIColor.red
+        lblOK.textAlignment = NSTextAlignment.center
+        lblOK.font = UIFont.boldSystemFont(ofSize: 38)
+        lblOK.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(lblOK)
         
         //大丈夫！落ち着いてボタンを押してください。
         lblPress.text="大丈夫！\n落ち着いてボタンを押してください。"
@@ -154,11 +178,30 @@ class ViewController: UIViewController {
             Constraint(lbl119, .centerX, to:self.view, .centerX, constant: -60),
             Constraint(lbl119, .width, to:self.view, .width, constant:0, multiplier:0.25)
         ])
+        //チェックボックス
+        self.view.addConstraints([
+            Constraint(checkbox2, .centerY, to:lblAED, .centerY, constant:0),
+            Constraint(checkbox2, .trailing, to:lblAED, .leading, constant:0),
+            Constraint(checkbox2, .width, to:self.view, .width, constant:0, multiplier:0.1),
+            Constraint(checkbox2, .height, to:self.view, .width, constant:0, multiplier:0.1)
+            ])
+        //AED
+        self.view.addConstraints([
+            Constraint(lblAED, .top, to:lblHeader, .bottom, constant:20),
+            Constraint(lblAED, .centerX, to:self.view, .centerX, constant: 100),
+            Constraint(lblAED, .width, to:self.view, .width, constant:0, multiplier:0.25)
+        ])
+        //OK?
+        self.view.addConstraints([
+            Constraint(lblOK, .top, to:lbl119, .bottom, constant:20),
+            Constraint(lblOK, .centerX, to:self.view, .centerX, constant:0),
+            Constraint(lblOK, .width, to:self.view, .width, constant:0, multiplier:0.25)
+        ])
         //大丈夫！落ち着いてボタンを押してください。
         self.view.addConstraints([
             Constraint(lblPress, .bottom, to:button1, .top, constant:-20),
             Constraint(lblPress, .centerX, to:self.view, .centerX, constant:0),
-            Constraint(lblPress, .width, to:self.view, .width, constant:0, multiplier:0.85),
+            Constraint(lblPress, .width, to:self.view, .width, constant:0)
         ])
         //成人
         self.view.addConstraints([
