@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     let button3 = UIButton(frame: CGRect.zero)
     let imgKyokusyo = UIImageView(frame: CGRect.zero)
     let lblFireDept = UILabel(frame: CGRect.zero)
+    var videoPlayer: AVPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -248,15 +249,15 @@ class ViewController: UIViewController {
         
         if let bundlePath = Bundle.main.path(forResource: "adult", ofType: "mp4"){
             
-            let videoPlayer = AVPlayer(url: URL(fileURLWithPath: bundlePath))
+            videoPlayer = AVPlayer(url: URL(fileURLWithPath: bundlePath))
             let playerController = AVPlayerViewController()
             playerController.player = videoPlayer
             self.present(playerController, animated: true, completion: {
-                videoPlayer.play()
+                self.videoPlayer.play()
                 //繰り返し再生
                 NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
-                    videoPlayer.seek(to: kCMTimeZero)
-                    videoPlayer.play()
+                    self.videoPlayer.seek(to: kCMTimeZero)
+                    self.videoPlayer.play()
                 }
             })
         } else {
@@ -269,15 +270,15 @@ class ViewController: UIViewController {
         
         if let bundlePath = Bundle.main.path(forResource: "child", ofType: "mp4"){
             
-            let videoPlayer = AVPlayer(url: URL(fileURLWithPath: bundlePath))
+            videoPlayer = AVPlayer(url: URL(fileURLWithPath: bundlePath))
             let playerController = AVPlayerViewController()
             playerController.player = videoPlayer
             self.present(playerController, animated: true, completion: {
-                videoPlayer.play()
+                self.videoPlayer.play()
                 //繰り返し再生
                 NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
-                    videoPlayer.seek(to: kCMTimeZero)
-                    videoPlayer.play()
+                    self.videoPlayer.seek(to: kCMTimeZero)
+                    self.videoPlayer.play()
                 }
 
             })
@@ -291,15 +292,15 @@ class ViewController: UIViewController {
         
         if let bundlePath = Bundle.main.path(forResource: "baby", ofType: "mp4"){
             
-            let videoPlayer = AVPlayer(url: URL(fileURLWithPath: bundlePath))
+            videoPlayer = AVPlayer(url: URL(fileURLWithPath: bundlePath))
             let playerController = AVPlayerViewController()
             playerController.player = videoPlayer
             self.present(playerController, animated: true, completion: {
-                videoPlayer.play()
+                self.videoPlayer.play()
                 //繰り返し再生
                 NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
-                    videoPlayer.seek(to: kCMTimeZero)
-                    videoPlayer.play()
+                    self.videoPlayer.seek(to: kCMTimeZero)
+                    self.videoPlayer.play()
                 }
 
             })
