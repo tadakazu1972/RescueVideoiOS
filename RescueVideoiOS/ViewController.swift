@@ -165,32 +165,32 @@ class ViewController: UIViewController {
             Constraint(lblHeader, .width, to:self.view, .width, constant:0),
             Constraint(lblHeader, .height, to:self.view, .height, constant:0, multiplier:0.07)
         ])
-        //チェックボックス
+        //チェックボックス1
         self.view.addConstraints([
             Constraint(checkbox1, .centerY, to:lbl119, .centerY, constant:0),
-            Constraint(checkbox1, .trailing, to:lbl119, .leading, constant:0),
+            Constraint(checkbox1, .leading, to:self.view, .leading, constant:14),
             Constraint(checkbox1, .width, to:self.view, .width, constant:0, multiplier:0.1),
             Constraint(checkbox1, .height, to:self.view, .width, constant:0, multiplier:0.1)
         ])
         //119
         self.view.addConstraints([
             Constraint(lbl119, .top, to:lblHeader, .bottom, constant:0),
-            Constraint(lbl119, .centerX, to:self.view, .centerX, constant: -60),
-            Constraint(lbl119, .width, to:self.view, .width, constant:0, multiplier:0.25),
+            Constraint(lbl119, .leading, to:self.view, .leading, constant: 10),
+            Constraint(lbl119, .width, to:self.view, .width, constant:0, multiplier:0.5),
             Constraint(lbl119, .height, to:self.view, .height, constant:0, multiplier:0.15)
         ])
-        //チェックボックス
+        //チェックボックス2
         self.view.addConstraints([
             Constraint(checkbox2, .centerY, to:lblAED, .centerY, constant:0),
-            Constraint(checkbox2, .trailing, to:lblAED, .leading, constant:0),
+            Constraint(checkbox2, .leading, to:self.view, .centerX, constant:14),
             Constraint(checkbox2, .width, to:self.view, .width, constant:0, multiplier:0.1),
             Constraint(checkbox2, .height, to:self.view, .width, constant:0, multiplier:0.1)
             ])
         //AED
         self.view.addConstraints([
             Constraint(lblAED, .top, to:lblHeader, .bottom, constant:0),
-            Constraint(lblAED, .centerX, to:self.view, .centerX, constant: 100),
-            Constraint(lblAED, .width, to:self.view, .width, constant:0, multiplier:0.25),
+            Constraint(lblAED, .leading, to:self.view, .centerX, constant: 10),
+            Constraint(lblAED, .width, to:self.view, .width, constant:0, multiplier:0.5),
             Constraint(lblAED, .height, to:self.view, .height, constant:0, multiplier:0.15)
         ])
         //OK?
