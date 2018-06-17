@@ -253,6 +253,11 @@ class ViewController: UIViewController {
             playerController.player = videoPlayer
             self.present(playerController, animated: true, completion: {
                 videoPlayer.play()
+                //繰り返し再生
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
+                    videoPlayer.seek(to: kCMTimeZero)
+                    videoPlayer.play()
+                }
             })
         } else {
             print("no such file")
@@ -269,6 +274,12 @@ class ViewController: UIViewController {
             playerController.player = videoPlayer
             self.present(playerController, animated: true, completion: {
                 videoPlayer.play()
+                //繰り返し再生
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
+                    videoPlayer.seek(to: kCMTimeZero)
+                    videoPlayer.play()
+                }
+
             })
         } else {
             print("no such file")
@@ -285,6 +296,12 @@ class ViewController: UIViewController {
             playerController.player = videoPlayer
             self.present(playerController, animated: true, completion: {
                 videoPlayer.play()
+                //繰り返し再生
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
+                    videoPlayer.seek(to: kCMTimeZero)
+                    videoPlayer.play()
+                }
+
             })
         } else {
             print("no such file")
