@@ -174,9 +174,10 @@ class ViewController: UIViewController {
         ])
         //119
         self.view.addConstraints([
-            Constraint(lbl119, .top, to:lblHeader, .bottom, constant:20),
+            Constraint(lbl119, .top, to:lblHeader, .bottom, constant:0),
             Constraint(lbl119, .centerX, to:self.view, .centerX, constant: -60),
-            Constraint(lbl119, .width, to:self.view, .width, constant:0, multiplier:0.25)
+            Constraint(lbl119, .width, to:self.view, .width, constant:0, multiplier:0.25),
+            Constraint(lbl119, .height, to:self.view, .height, constant:0, multiplier:0.15)
         ])
         //チェックボックス
         self.view.addConstraints([
@@ -187,15 +188,17 @@ class ViewController: UIViewController {
             ])
         //AED
         self.view.addConstraints([
-            Constraint(lblAED, .top, to:lblHeader, .bottom, constant:20),
+            Constraint(lblAED, .top, to:lblHeader, .bottom, constant:0),
             Constraint(lblAED, .centerX, to:self.view, .centerX, constant: 100),
-            Constraint(lblAED, .width, to:self.view, .width, constant:0, multiplier:0.25)
+            Constraint(lblAED, .width, to:self.view, .width, constant:0, multiplier:0.25),
+            Constraint(lblAED, .height, to:self.view, .height, constant:0, multiplier:0.15)
         ])
         //OK?
         self.view.addConstraints([
-            Constraint(lblOK, .top, to:lbl119, .bottom, constant:20),
+            Constraint(lblOK, .top, to:lbl119, .bottom, constant:0),
             Constraint(lblOK, .centerX, to:self.view, .centerX, constant:0),
-            Constraint(lblOK, .width, to:self.view, .width, constant:0, multiplier:0.25)
+            Constraint(lblOK, .width, to:self.view, .width, constant:0, multiplier:0.25),
+            Constraint(lblOK, .height, to:self.view, .height, constant:0, multiplier:0.07)
         ])
         //大丈夫！落ち着いてボタンを押してください。
         self.view.addConstraints([
@@ -233,9 +236,10 @@ class ViewController: UIViewController {
         ])
         //大阪市消防局
         self.view.addConstraints([
-            Constraint(lblFireDept, .bottom, to:self.view, .bottom, constant:-32),
+            Constraint(lblFireDept, .bottom, to:self.view, .bottom, constant:0),
             Constraint(lblFireDept, .centerX, to:self.view, .centerX, constant:8),
-            Constraint(lblFireDept, .width, to:self.view, .width, constant:0, multiplier:0.5)
+            Constraint(lblFireDept, .width, to:self.view, .width, constant:0, multiplier:0.5),
+            Constraint(lblFireDept, .height, to:self.view, .height, constant:0, multiplier:0.1)
         ])
     }
     
